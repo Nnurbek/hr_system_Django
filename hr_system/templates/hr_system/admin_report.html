@@ -1,0 +1,29 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="container">
+    <h2 class="my-4">Қызметкерлер есебі</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Пайдаланушы аты</th>
+                <th>Толық аты</th>
+                <th>Лауазымы</th>
+                <th>Жұмыс сағаттары</th>
+                <th>Жалпы табыс сомасы</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in report_data %}
+            <tr>
+                <td>{{ data.employee.user.username }}</td>
+                <td>{{ data.employee.user.first_name }} {{ data.employee.user.last_name }}</td>
+                <td>{{ data.employee.position }}</td>
+                <td>{{ data.total_hours|floatformat:2 }}</td>
+                <td>{{ data.total_earnings|floatformat:2 }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

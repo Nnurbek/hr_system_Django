@@ -1,0 +1,13 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h2>Уведомления</h2>
+<ul class="list-group">
+    {% for notification in notifications %}
+    <li class="list-group-item {% if not notification.read %}list-group-item-warning{% endif %}">
+        {{ notification.message }}
+        <a href="{% url 'mark_notification_as_read' notification.id %}" class="btn btn-primary btn-sm float-right">Прочитано</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

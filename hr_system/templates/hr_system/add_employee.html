@@ -1,0 +1,69 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h2 class="my-4 text-primary">Қызметкерді қосу</h2>
+    <form method="post">
+        {% csrf_token %}
+        {% if user_form.errors %}
+            <div class="alert alert-danger">
+                <strong>Қате:</strong> Форманы толтырғанда қателіктер болды.
+                <ul>
+                    {% for field in user_form %}
+                        {% for error in field.errors %}
+                            <li>{{ field.label }}: {{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        {% if profile_form.errors %}
+            <div class="alert alert-danger">
+                <strong>Қате:</strong> Форманы толтырғанда қателіктер болды.
+                <ul>
+                    {% for field in profile_form %}
+                        {% for error in field.errors %}
+                            <li>{{ field.label }}: {{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        <div class="form-group">
+            <label for="id_username" class="text-primary">Пайдаланушы аты:</label>
+            <input type="text" name="username" class="form-control border border-primary" id="id_username" required>
+            <small class="form-text text-muted">Міндетті. 150 таңбадан аспауы керек. Әріптер, сандар және @/./+/-/_ ғана.</small>
+        </div>
+        <div class="form-group">
+            <label for="id_first_name" class="text-success">Аты:</label>
+            <input type="text" name="first_name" class="form-control border border-success" id="id_first_name">
+        </div>
+        <div class="form-group">
+            <label for="id_last_name" class="text-primary">Тегі:</label>
+            <input type="text" name="last_name" class="form-control border border-primary" id="id_last_name">
+        </div>
+        <div class="form-group">
+            <label for="id_email" class="text-success">Электрондық пошта:</label>
+            <input type="email" name="email" class="form-control border border-success" id="id_email">
+        </div>
+        <div class="form-group">
+            <label for="id_password1" class="text-primary">Құпия сөз:</label>
+            <input type="password" name="password1" class="form-control border border-primary" id="id_password1" required>
+        </div>
+        <div class="form-group">
+            <label for="id_password2" class="text-primary">Құпия сөзді растау:</label>
+            <input type="password" name="password2" class="form-control border border-primary" id="id_password2" required>
+        </div>
+        <div class="form-group">
+            <label for="id_position" class="text-success">Лауазымы:</label>
+            <input type="text" name="position" class="form-control border border-success" id="id_position">
+        </div>
+        <div class="form-group">
+            <label for="id_hourly_rate" class="text-primary">Сағаттық ставка:</label>
+            <input type="number" name="hourly_rate" class="form-control border border-primary" id="id_hourly_rate">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Қосу</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="container">
+    <h2 class="my-4">Қызметкерлер тізімі</h2>
+    {% for employee in employees %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ employee.user.username }} - {{ employee.position }}</h5>
+                <p class="card-text">Жалпы жұмыс сағаттары: {{ employee.total_hours_worked|floatformat:2 }}</p>
+                <p class="card-text">Жалпы табыс сомасы: {{ employee.total_earnings|floatformat:0 }}</p>
+                <a href="{% url 'admin_profile_edit' employee.user.id %}" class="btn btn-primary">Өзгерту</a>
+                <a href="{% url 'delete_employee' employee.user.id %}" class="btn btn-danger">Жою</a>
+                <a href="{% url 'view_work_sessions' employee.user.id %}" class="btn btn-info">Жұмыс сессияларын қарау</a>
+            </div>
+        </div>
+    {% endfor %}
+    <a href="{% url 'add_employee' %}" class="btn btn-success mt-3">Қызметкерді қосу</a>
+    <a href="{% url 'create_notification' %}" class="btn btn-warning mt-3">Ескерту жасау</a>
+    <a href="{% url 'generate_report' %}" class="btn btn-success mt-3">Есепті жүктеу</a>
+</div>
+{% endblock %}

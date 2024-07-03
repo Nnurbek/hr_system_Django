@@ -1,0 +1,147 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-21 23:23+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: .\templates\base_generic.html:7 .\templates\base_generic.html:13
+msgid "HR System"
+msgstr ""
+
+#: .\templates\base_generic.html:14
+msgid "Toggle navigation"
+msgstr ""
+
+#: .\templates\base_generic.html:22
+msgid "Admin Employees"
+msgstr ""
+
+#: .\templates\base_generic.html:26
+msgid "Employees"
+msgstr ""
+
+#: .\templates\base_generic.html:29
+msgid "Profile"
+msgstr ""
+
+#: .\templates\base_generic.html:39 .\templates\base_generic.html:42
+msgid "Logout"
+msgstr ""
+
+#: .\templates\base_generic.html:47
+msgid "Login"
+msgstr ""
+
+#: .\templates\hr_system\add_employee.html:6
+#: .\templates\hr_system\admin_employee_list.html:19
+msgid "Добавить сотрудника"
+msgstr ""
+
+#: .\templates\hr_system\add_employee.html:11
+msgid "Добавить"
+msgstr ""
+
+#: .\templates\hr_system\admin_employee_list.html:6
+msgid "Список сотрудников (Админ)"
+msgstr ""
+
+#: .\templates\hr_system\admin_employee_list.html:11
+#: .\templates\hr_system\profile.html:10
+#: .\templates\hr_system\profile_edit.html:11
+msgid "Всего отработанных часов"
+msgstr ""
+
+#: .\templates\hr_system\admin_employee_list.html:12
+#: .\templates\hr_system\profile.html:11
+#: .\templates\hr_system\profile_edit.html:15
+msgid "Общая сумма заработка"
+msgstr ""
+
+#: .\templates\hr_system\admin_employee_list.html:13
+#: .\templates\hr_system\profile.html:12
+#: .\templates\hr_system\view_work_sessions.html:10
+msgid "Редактировать"
+msgstr ""
+
+#: .\templates\hr_system\admin_employee_list.html:14
+msgid "Удалить"
+msgstr ""
+
+#: .\templates\hr_system\admin_employee_list.html:15
+msgid "Просмотр рабочих сессий"
+msgstr ""
+
+#: .\templates\hr_system\admin_employee_list.html:20
+msgid "Скачать отчет"
+msgstr ""
+
+#: .\templates\hr_system\edit_work_session.html:6
+msgid "Редактировать рабочую сессию"
+msgstr ""
+
+#: .\templates\hr_system\edit_work_session.html:10
+msgid "Начало работы"
+msgstr ""
+
+#: .\templates\hr_system\edit_work_session.html:14
+msgid "Завершение работы"
+msgstr ""
+
+#: .\templates\hr_system\edit_work_session.html:17
+#: .\templates\hr_system\profile_edit.html:19
+msgid "Сохранить изменения"
+msgstr ""
+
+#: .\templates\hr_system\employee_list.html:5
+msgid "Список сотрудников"
+msgstr ""
+
+#: .\templates\hr_system\profile.html:7
+msgid "Профиль"
+msgstr ""
+
+#: .\templates\hr_system\profile.html:8
+msgid "Имя"
+msgstr ""
+
+#: .\templates\hr_system\profile.html:9
+msgid "Должность"
+msgstr ""
+
+#: .\templates\hr_system\profile_edit.html:5
+msgid "Редактировать профиль"
+msgstr ""
+
+#: .\templates\hr_system\view_work_sessions.html:5
+msgid "Рабочие сессии для"
+msgstr ""
+
+#: .\templates\hr_system\view_work_sessions.html:9
+msgid "С"
+msgstr ""
+
+#: .\templates\hr_system\view_work_sessions.html:9
+msgid "до"
+msgstr ""
+
+#: .\templates\hr_system\view_work_sessions.html:9
+msgid "в работе"
+msgstr ""
+
+#: .\templates\hr_system\view_work_sessions.html:9
+msgid "часов"
+msgstr ""

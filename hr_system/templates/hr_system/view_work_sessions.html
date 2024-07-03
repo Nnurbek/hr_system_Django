@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>{{ user.username }} үшін жұмыс сессиялары</h2>
+    <ul class="list-group">
+        {% for session in work_sessions %}
+            <li class="list-group-item">
+                {{ session.start_time }} бастап {{ session.end_time|default:"жұмыста" }} - {{ session.duration|floatformat:2 }} сағат
+                <a class="btn btn-primary btn-sm" href="{% url 'edit_work_session' session.id %}">Өңдеу</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

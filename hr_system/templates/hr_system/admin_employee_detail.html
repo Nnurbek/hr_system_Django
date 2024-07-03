@@ -1,0 +1,95 @@
+<!-- templates/hr_system/admin_employee_detail.html -->
+{% extends "base_generic.html" %}
+{% load multiply %}
+
+{% block title %}Қызметкер туралы мәліметтер{% endblock %}
+
+{% block content %}
+<style>
+    .search-form {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .search-form input {
+        margin-right: 10px;
+    }
+    .table-container {
+        overflow-x: auto;
+    }
+    .table th, .table td {
+        white-space: nowrap;
+        font-size: 14px; /* Уменьшенный шрифт */
+        padding: 8px 10px; /* Уменьшенные отступы */
+    }
+    .table th, .table td {
+        white-space: nowrap;
+        text-align: center;
+    }
+    .table th.date, .table td.date {
+        white-space: nowrap;
+        text-align: center;
+    }
+    .table th.weekday, .table td.weekday {
+        white-space: nowrap;
+        text-align: center;
+    }
+</style>
+
+<div class="container mt-4">
+    <h2>Қызметкер туралы мәліметтер</h2>
+    
+    <form method="GET" action="{% url 'admin_employee_detail' %}" class="form-inline mb-3 search-form">
+        <input type="text" name="q" value="{{ query|default_if_none:'' }}" class="form-control" placeholder="Іздеу">
+        <button type="submit" class="btn btn-primary">Іздеу</button>
+    </form>
+    
+    <div class="table-container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Қызметкердің нөмірі</th>
+                    <th>Аты</th>
+                    <th>Бөлім</th>
+                    <th class="date">Күні</th>
+                    <th class="weekday">Апта күні</th>
+                    <th>Жұмысты бастады</th>
+                    <th>Жұмысты аяқтады</th>
+                    <th>Жалпы уақыт</th>
+                    <th>Тапқан табысы</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for session in work_sessions %}
+                <tr>
+                    <td>{{ session.user.id }}</td>
+                    <td>{{ session.user.username }}</td>
+                    <td>{{ session.user.employeeprofile.position }}</td>
+                    <td class="date">{{ session.start_time|date:"Y-m-d" }}</td>
+                    <td class="weekday">
+                        {% if session.start_time|date:"l" == "Monday" %}Дүйсенбі
+                        {% elif session.start_time|date:"l" == "Tuesday" %}Сейсенбі
+                        {% elif session.start_time|date:"l" == "Wednesday" %}Сәрсенбі
+                        {% elif session.start_time|date:"l" == "Thursday" %}Бейсенбі
+                        {% elif session.start_time|date:"l" == "Friday" %}Жұма
+                        {% elif session.start_time|date:"l" == "Saturday" %}Сенбі
+                        {% elif session.start_time|date:"l" == "Sunday" %}Жексенбі
+                        {% endif %}
+                    </td>
+                    <td>{{ session.start_time|time:"H:i" }}</td>
+                    <td>{% if session.end_time %}{{ session.end_time|time:"H:i" }}{% else %}--{% endif %}</td>
+                    <td>{{ session.duration|floatformat:2 }} сағ</td>
+                    <td>{% if session.end_time %}
+                        {% with total_earnings=session.duration|multiply:session.user.employeeprofile.hourly_rate %}
+                            {{ total_earnings|floatformat:0 }}
+                        {% endwith %}
+                    {% else %}--{% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

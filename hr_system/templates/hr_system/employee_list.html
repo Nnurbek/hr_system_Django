@@ -1,0 +1,10 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h2 class="my-4">Қызметкерлер тізімі</h2>
+<ul class="list-group">
+    {% for employee in employees %}
+    <li class="list-group-item">{{ employee.user.username }} - {{ employee.position }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

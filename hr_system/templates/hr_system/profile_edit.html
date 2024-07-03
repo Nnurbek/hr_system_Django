@@ -1,0 +1,24 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2>Профильді өңдеу</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ user_form.as_p }}
+    {% if is_admin %}
+      <div class="form-group">
+        <label for="id_total_hours_worked">Жалпы жұмыс сағаттары:</label>
+        <input type="number" step="0.01" class="form-control" id="id_total_hours_worked" name="total_hours_worked" value="{{ profile.total_hours_worked }}">
+      </div>
+      <div class="form-group">
+        <label for="id_total_earnings">Жалпы табыс сомасы:</label>
+        <input type="number" step="0.01" class="form-control" id="id_total_earnings" name="total_earnings" value="{{ profile.total_earnings }}">
+      </div>
+      <div class="form-group">
+        <label for="id_password">Құпия сөз:</label>
+        <input type="password" class="form-control" id="id_password" name="password">
+      </div>
+    {% endif %}
+    <button type="submit" class="btn btn-primary">Өзгерістерді сақтау</button>
+  </form>
+{% endblock %}
